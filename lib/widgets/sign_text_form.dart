@@ -7,14 +7,25 @@ class SignTextFormField extends StatelessWidget {
     return Column(
       children: [
         CustomTextFormField(
-            validator: (p0) {},
+            validator: (data) {
+              if (data!.isEmpty) {
+                return "مطلوب ادخال بيانات";
+              }
+              return null;
+            },
             label: "رقم الهاتف/البريد الإلكتروني",
             onChanged: (value) {}),
         const SizedBox(
           height: 32,
         ),
         CustomTextFormField(
-          validator: (p0) {},
+          validator: (data) {
+            if (data!.isEmpty) {
+              return "مطلوب ادخال بيانات";
+            }
+            return null;
+          },
+          obscureText: true,
           label: "كلمة المرور",
           onChanged: (value) {},
           preicon: IconButton(

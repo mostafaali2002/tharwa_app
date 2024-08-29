@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/setting_card.dart';
 
@@ -23,7 +24,9 @@ class MorePage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -41,7 +44,7 @@ class MorePage extends StatelessWidget {
               text: "الإشعارات",
               ontap: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             SettingCard(
@@ -49,7 +52,7 @@ class MorePage extends StatelessWidget {
               text: "من نحن",
               ontap: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             SettingCard(
@@ -57,7 +60,7 @@ class MorePage extends StatelessWidget {
               text: "سياسة الاستخدام والخصوصية",
               ontap: () {},
             ),
-            SizedBox(
+            const SizedBox(
               height: 30,
             ),
             SettingCard(

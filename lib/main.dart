@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:tharwa_app/pages/cart_page.dart';
 
 import 'package:tharwa_app/pages/code_page.dart';
 import 'package:tharwa_app/pages/favourit_page.dart';
@@ -26,9 +28,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SellerPage(),
+      home: SplashPage(),
     );
   }
 }

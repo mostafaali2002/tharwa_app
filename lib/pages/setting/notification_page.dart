@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/notification_row.dart';
 
@@ -23,7 +24,9 @@ class NotificationPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -59,6 +62,5 @@ class NotificationPage extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

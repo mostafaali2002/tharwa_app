@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 
 class PrivacyPolicyPage extends StatelessWidget {
@@ -20,7 +21,9 @@ class PrivacyPolicyPage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Get.back();
+              },
               icon: const Icon(
                 Icons.arrow_forward,
                 color: Color(Style.kPrimaryColor),

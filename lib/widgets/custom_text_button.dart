@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:tharwa_app/pages/signin_page.dart';
 
 class CustomTextButton extends StatelessWidget {
   const CustomTextButton({
@@ -6,14 +8,16 @@ class CustomTextButton extends StatelessWidget {
     required this.text,
     required this.color,
     required this.fontSize,
+    required this.onpressed,
   });
   final String text;
   final Color color;
   final double fontSize;
+  final VoidCallback onpressed;
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {},
+      onPressed: onpressed,
       child: Text(
         text,
         style: TextStyle(

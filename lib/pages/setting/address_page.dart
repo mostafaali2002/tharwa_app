@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
@@ -24,7 +25,9 @@ class AddressPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -42,12 +45,17 @@ class AddressPage extends StatelessWidget {
                 height: 30,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "العنوان على الخريطة",
                 onChanged: (value) {},
                 preicon: IconButton(
                   onPressed: () {},
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.add_location,
                     color: Color(0xffFF725E),
                   ),
@@ -57,31 +65,46 @@ class AddressPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "البلد",
                 onChanged: (value) {},
                 preicon: IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                 ),
               ),
               const SizedBox(
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "المحافظة",
                 onChanged: (value) {},
                 preicon: IconButton(
                   onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_down),
+                  icon: const Icon(Icons.keyboard_arrow_down),
                 ),
               ),
               const SizedBox(
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "العنوان تفصيلي",
                 onChanged: (value) {},
               ),
@@ -89,7 +112,12 @@ class AddressPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "علامة مميزة",
                 onChanged: (value) {},
               ),

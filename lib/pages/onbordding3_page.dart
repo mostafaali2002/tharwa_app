@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
+import 'package:tharwa_app/pages/signin_page.dart';
 import 'package:tharwa_app/widgets/csutom_card_bordding.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 
@@ -26,7 +28,9 @@ class BorddingThreePage extends StatelessWidget {
               height: 100,
             ),
             CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => const SignInPage());
+                },
                 width: 178,
                 btnColor: const Color(Style.kPrimaryColor),
                 text: "ابد الان")

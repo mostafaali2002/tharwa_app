@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
@@ -25,7 +25,9 @@ class ChangePasswordPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -43,8 +45,14 @@ class ChangePasswordPage extends StatelessWidget {
                 height: 30,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "كلمة المرور الحالية",
+                obscureText: true,
                 onChanged: (value) {},
                 preicon: IconButton(
                   onPressed: () {},
@@ -55,7 +63,13 @@ class ChangePasswordPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
+                obscureText: true,
                 label: "كلمة المرور الجديدة",
                 onChanged: (value) {},
                 preicon: IconButton(
@@ -67,8 +81,14 @@ class ChangePasswordPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "تأكيد كلمة المرور الجديدة",
+                obscureText: true,
                 onChanged: (value) {},
                 preicon: IconButton(
                   onPressed: () {},

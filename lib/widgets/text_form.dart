@@ -26,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
       textAlign: TextAlign.right,
       obscureText: obscureText,
       keyboardType: keyboardType,
+      cursorColor: Colors.black,
       maxLines: 1,
       onChanged: onChanged,
       decoration: InputDecoration(

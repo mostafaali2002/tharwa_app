@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/setting_card.dart';
 
@@ -24,7 +25,9 @@ class AccountPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -52,17 +55,17 @@ class AccountPage extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Column(
+                    const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const Text(
+                        Text(
                           "أحمد محمد محمد",
                           style: TextStyle(
                               color: Color(Style.kPrimaryColorTwo),
                               fontSize: 16,
                               fontWeight: FontWeight.bold),
                         ),
-                        const Text(
+                        Text(
                           "emailaddress@email.com",
                           style: TextStyle(
                             color: Colors.grey,
@@ -79,7 +82,7 @@ class AccountPage extends StatelessWidget {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       elevation: 6,
-                      child: Icon(
+                      child: const Icon(
                         Icons.image,
                         size: 60,
                       ),

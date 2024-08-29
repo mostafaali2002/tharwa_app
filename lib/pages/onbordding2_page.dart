@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:tharwa_app/constant.dart';
+import 'package:tharwa_app/pages/onbordding3_page.dart';
+import 'package:tharwa_app/pages/signin_page.dart';
 import 'package:tharwa_app/widgets/csutom_card_bordding.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/custom_circle_avatar.dart';
@@ -14,13 +18,18 @@ class BorddingTwoPage extends StatelessWidget {
       child: Scaffold(
         body: Column(
           children: [
-            const Padding(
+            Padding(
               padding: EdgeInsets.all(24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   CustomTextButton(
-                      color: Colors.black, text: "تخطي", fontSize: 17),
+                      onpressed: () {
+                        Get.to(() => const SignInPage());
+                      },
+                      color: Colors.black,
+                      text: "تخطي",
+                      fontSize: 17),
                 ],
               ),
             ),
@@ -48,7 +57,9 @@ class BorddingTwoPage extends StatelessWidget {
                     thirdCircleColor: Color(Style.kCircleColor),
                   ),
                   CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => const BorddingThreePage());
+                      },
                       width: 115,
                       btnColor: const Color(Style.kPrimaryColor),
                       text: "التالي")

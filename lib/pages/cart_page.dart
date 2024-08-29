@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
+import 'package:tharwa_app/widgets/cart_item.dart';
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({super.key});
+class CartPage extends StatelessWidget {
+  const CartPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class AboutPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "من نحن",
+          "السلة",
           style: TextStyle(
               color: Color(Style.kPrimaryColorTwo),
               fontSize: 20,
@@ -23,9 +23,7 @@ class AboutPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {
-                  Get.back();
-                },
+                onPressed: () {},
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -35,15 +33,14 @@ class AboutPage extends StatelessWidget {
         ],
       ),
       body: const Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: EdgeInsets.symmetric(vertical: 30),
         child: Column(
           children: [
+            CartItem(),
             SizedBox(
-              height: 30,
+              height: 25,
             ),
-            Text(
-                textAlign: TextAlign.right,
-                "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبورأنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريدأكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات"),
+            CartItem()
           ],
         ),
       ),

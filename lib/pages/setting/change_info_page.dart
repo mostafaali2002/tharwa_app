@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
@@ -24,7 +25,9 @@ class ChangeInfoPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 icon: const Icon(
                   Icons.arrow_forward,
                   color: Color(Style.kPrimaryColorTwo),
@@ -46,7 +49,7 @@ class ChangeInfoPage extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   Image.asset("assets/image.png"),
-                  Positioned(
+                  const Positioned(
                     left: 80,
                     top: 90,
                     child: Card(
@@ -57,18 +60,23 @@ class ChangeInfoPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
-              Text(
+              const Text(
                 "تعديل البيانات الشخصية",
                 style: TextStyle(fontSize: 13, color: Colors.grey),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 24,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "الاسم",
                 onChanged: (value) {},
               ),
@@ -76,7 +84,12 @@ class ChangeInfoPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "رقم الهاتف/البريد الإلكتروني",
                 onChanged: (value) {},
               ),
@@ -84,7 +97,12 @@ class ChangeInfoPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "النوع",
                 onChanged: (value) {},
                 preicon: IconButton(
@@ -96,7 +114,12 @@ class ChangeInfoPage extends StatelessWidget {
                 height: 32,
               ),
               CustomTextFormField(
-                validator: (p0) {},
+                validator: (data) {
+                  if (data!.isEmpty) {
+                    return "Field is required";
+                  }
+                  return null;
+                },
                 label: "السن",
                 onChanged: (value) {},
               ),
