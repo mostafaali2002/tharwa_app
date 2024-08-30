@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/pages/signin_page.dart';
+import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
 
@@ -101,37 +101,14 @@ class NewPasswordPage extends StatelessWidget {
                                               .validate()) {
                                             showDialog(
                                               context: context,
-                                              builder: (context) => AlertDialog(
-                                                backgroundColor: Colors.white,
-                                                shape: RoundedRectangleBorder(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            20)),
-                                                actions: [
-                                                  Center(
-                                                    child: CustomButton(
-                                                        onPressed: () {
-                                                          Get.to(() =>
-                                                              const SignInPage());
-                                                        },
-                                                        width: 230,
-                                                        btnColor: const Color(
-                                                            Style
-                                                                .kPrimaryColor),
-                                                        text: "حسنا"),
-                                                  )
-                                                ],
-                                                icon: const Icon(
-                                                    FontAwesomeIcons
-                                                        .circleCheck,
-                                                    size: 70,
-                                                    color: Colors.green),
-                                                title: const Text(
-                                                  "تم تغيير كلمة المرور بنجاح",
-                                                  style: TextStyle(
-                                                      fontSize: 30,
-                                                      color: Colors.black),
-                                                ),
+                                              builder: (context) =>
+                                                  CustomAlertDialog(
+                                                messege:
+                                                    "تم تغيير كلمة المرور بنجاح",
+                                                ontap: () {
+                                                  Get.to(
+                                                      () => const SignInPage());
+                                                },
                                               ),
                                             );
                                           }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField(
+  CustomTextFormField(
       {super.key,
-      required this.label,
+      this.label,
       this.keyboardType,
       this.preicon,
       this.sufficon,
@@ -11,7 +11,7 @@ class CustomTextFormField extends StatelessWidget {
       required this.onChanged,
       this.hint,
       this.obscureText = false});
-  final String label;
+  String? label;
   final bool obscureText;
   final String? hint;
   final TextInputType? keyboardType;
@@ -34,10 +34,11 @@ class CustomTextFormField extends StatelessWidget {
             borderSide: const BorderSide(color: Colors.black),
             borderRadius: BorderRadius.circular(20)),
         hintText: hint,
+        hintStyle: TextStyle(color: Colors.grey),
         labelStyle: const TextStyle(color: Colors.black),
         label: Align(
             child: Text(
-              label,
+              label!,
             ),
             alignment: Alignment.centerRight),
         suffixIcon: sufficon,

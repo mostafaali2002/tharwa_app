@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/widgets/tshirt_item.dart';
 
@@ -10,6 +12,7 @@ class SellerPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           backgroundColor: Colors.transparent,
           elevation: 0,
           toolbarHeight: 180,
@@ -51,7 +54,9 @@ class SellerPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(15),
                       color: const Color.fromARGB(188, 255, 255, 255)),
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.back();
+                    },
                     icon: const Icon(
                       Icons.arrow_forward,
                       size: 30,
@@ -124,7 +129,6 @@ class SellerPage extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 80),
           child: GridView.builder(
-            // padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 120),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 0.5,
