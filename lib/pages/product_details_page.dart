@@ -6,9 +6,15 @@ import 'package:tharwa_app/widgets/circle_button.dart';
 import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
 import 'package:tharwa_app/widgets/custom_circle_avatar.dart';
 
-class ProductDetailsPage extends StatelessWidget {
+class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key});
 
+  @override
+  State<ProductDetailsPage> createState() => _ProductDetailsPageState();
+}
+
+class _ProductDetailsPageState extends State<ProductDetailsPage> {
+  int count = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,21 +78,33 @@ class ProductDetailsPage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           CircleButton(
-                            ontap: () {},
+                            ontap: () {
+                              setState(() {
+                                if (count == 0) {
+                                  count = 0;
+                                } else {
+                                  count--;
+                                }
+                              });
+                            },
                             iconData: Icons.remove,
                           ),
                           const SizedBox(
                             width: 5,
                           ),
-                          const Text(
-                            "0",
-                            style: TextStyle(fontSize: 15),
+                          Text(
+                            "$count",
+                            style: const TextStyle(fontSize: 15),
                           ),
                           const SizedBox(
                             width: 5,
                           ),
                           CircleButton(
-                            ontap: () {},
+                            ontap: () {
+                              setState(() {
+                                count++;
+                              });
+                            },
                             iconData: Icons.add,
                           ),
                           const Spacer(
