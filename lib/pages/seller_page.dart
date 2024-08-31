@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:tharwa_app/constant.dart';
+import 'package:tharwa_app/pages/filter_search_page.dart';
 import 'package:tharwa_app/widgets/tshirt_item.dart';
 
 class SellerPage extends StatelessWidget {
@@ -111,7 +112,9 @@ class SellerPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(15),
                         color: const Color.fromARGB(255, 255, 255, 255)),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.to(() => const FilterSearchPage());
+                      },
                       icon: const Icon(
                         FontAwesomeIcons.sliders,
                         size: 30,

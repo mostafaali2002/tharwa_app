@@ -35,11 +35,6 @@ class SignInPage extends StatelessWidget {
                     Stack(
                       children: [
                         Image.asset(Style.kVector2),
-                        // Image.asset(
-                        //   "assets/Vector.png",
-                        //   height: 500,
-                        //   color: Color(0xff979F8A),
-                        // ),
                         Image.asset(
                           Style.kVector,
                           height: 450,
@@ -74,7 +69,7 @@ class SignInPage extends StatelessWidget {
                                             Get.to(() =>
                                                 const ForgetPasswordPage());
                                           },
-                                          color: Color(0xff848282),
+                                          color: const Color(0xff848282),
                                           text: "نسيت كلمة المرور؟",
                                           fontSize: 12),
                                     ),
@@ -85,7 +80,7 @@ class SignInPage extends StatelessWidget {
                                         onPressed: () {
                                           if (formkey.currentState!
                                               .validate()) {
-                                            Get.to(() => HomePage());
+                                            Get.to(() => const HomePage());
                                           }
                                         },
                                         width: 230,
@@ -107,7 +102,7 @@ class SignInPage extends StatelessWidget {
                                           color: Colors.black,
                                           fontSize: 12,
                                         ),
-                                        Text(
+                                        const Text(
                                           "لا تملك حساب؟",
                                           style: TextStyle(fontSize: 12),
                                         )

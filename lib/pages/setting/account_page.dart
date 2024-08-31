@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/pages/favourit_page.dart';
 import 'package:tharwa_app/pages/home_page.dart';
-import 'package:tharwa_app/pages/setting/address_page.dart';
+import 'package:tharwa_app/pages/setting/address_delivery_page.dart';
 import 'package:tharwa_app/pages/setting/change_info_page.dart';
 import 'package:tharwa_app/pages/setting/change_password_page.dart';
 import 'package:tharwa_app/pages/setting/more_page.dart';

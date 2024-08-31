@@ -6,9 +6,16 @@ import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
 
-class NewPasswordPage extends StatelessWidget {
+class NewPasswordPage extends StatefulWidget {
   const NewPasswordPage({super.key});
 
+  @override
+  State<NewPasswordPage> createState() => _NewPasswordPageState();
+}
+
+class _NewPasswordPageState extends State<NewPasswordPage> {
+  bool ispassword = true;
+  bool ispassword2 = true;
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = GlobalKey();
@@ -66,12 +73,23 @@ class NewPasswordPage extends StatelessWidget {
                                         }
                                         return null;
                                       },
-                                      obscureText: true,
+                                      obscureText: ispassword,
                                       label: "كلمه المرور الجديده",
                                       onChanged: (value) {},
                                       preicon: IconButton(
                                         onPressed: () {},
-                                        icon: Icon(Icons.remove_red_eye),
+                                        icon: IconButton(
+                                          onPressed: () {
+                                            setState(() {
+                                              ispassword = !ispassword;
+                                            });
+                                          },
+                                          icon: ispassword
+                                              ? const Icon(Icons.visibility_off)
+                                              : const Icon(Icons.visibility),
+                                          color: Colors.grey,
+                                          iconSize: 25,
+                                        ),
                                       ),
                                     ),
                                     const SizedBox(
@@ -84,12 +102,20 @@ class NewPasswordPage extends StatelessWidget {
                                         }
                                         return null;
                                       },
-                                      obscureText: true,
+                                      obscureText: ispassword2,
                                       label: "تاكيد كلمه المرور",
                                       onChanged: (value) {},
                                       preicon: IconButton(
-                                        onPressed: () {},
-                                        icon: Icon(Icons.remove_red_eye),
+                                        onPressed: () {
+                                          setState(() {
+                                            ispassword2 = !ispassword2;
+                                          });
+                                        },
+                                        icon: ispassword2
+                                            ? const Icon(Icons.visibility_off)
+                                            : const Icon(Icons.visibility),
+                                        color: Colors.grey,
+                                        iconSize: 25,
                                       ),
                                     ),
                                     const SizedBox(

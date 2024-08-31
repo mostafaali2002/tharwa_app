@@ -6,26 +6,19 @@ import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
 
-class ChangePasswordPage extends StatefulWidget {
-  const ChangePasswordPage({super.key});
+class AddressPage extends StatelessWidget {
+  const AddressPage({super.key});
 
-  @override
-  State<ChangePasswordPage> createState() => _ChangePasswordPageState();
-}
-
-class _ChangePasswordPageState extends State<ChangePasswordPage> {
-  bool ispassword = true;
-  bool ispassword2 = true;
-  bool ispassword3 = true;
   @override
   Widget build(BuildContext context) {
     GlobalKey<FormState> formkey = GlobalKey();
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "تغيير كلمة المرور",
+          "عنوان الشحن",
           style: TextStyle(
               color: Color(Style.kPrimaryColorTwo),
               fontSize: 20,
@@ -64,20 +57,14 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     }
                     return null;
                   },
-                  label: "كلمة المرور الحالية",
-                  obscureText: ispassword2,
+                  label: "العنوان على الخريطة",
                   onChanged: (value) {},
                   preicon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        ispassword2 = !ispassword2;
-                      });
-                    },
-                    icon: ispassword2
-                        ? const Icon(Icons.visibility_off)
-                        : const Icon(Icons.visibility),
-                    color: Colors.grey,
-                    iconSize: 25,
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.add_location,
+                      color: Color(0xffFF725E),
+                    ),
                   ),
                 ),
                 const SizedBox(
@@ -90,20 +77,11 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     }
                     return null;
                   },
-                  obscureText: ispassword3,
-                  label: "كلمة المرور الجديدة",
+                  label: "البلد",
                   onChanged: (value) {},
                   preicon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        ispassword3 = !ispassword3;
-                      });
-                    },
-                    icon: ispassword3
-                        ? const Icon(Icons.visibility_off)
-                        : const Icon(Icons.visibility),
-                    color: Colors.grey,
-                    iconSize: 25,
+                    onPressed: () {},
+                    icon: const Icon(Icons.keyboard_arrow_down),
                   ),
                 ),
                 const SizedBox(
@@ -116,21 +94,38 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                     }
                     return null;
                   },
-                  obscureText: ispassword,
-                  label: "تأكيد كلمة المرور الجديدة",
+                  label: "المحافظة",
                   onChanged: (value) {},
                   preicon: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        ispassword = !ispassword;
-                      });
-                    },
-                    icon: ispassword
-                        ? const Icon(Icons.visibility_off)
-                        : const Icon(Icons.visibility),
-                    color: Colors.grey,
-                    iconSize: 25,
+                    onPressed: () {},
+                    icon: const Icon(Icons.keyboard_arrow_down),
                   ),
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                CustomTextFormField(
+                  validator: (data) {
+                    if (data!.isEmpty) {
+                      return "مطلوب ادخال بيانات";
+                    }
+                    return null;
+                  },
+                  label: "العنوان تفصيلي",
+                  onChanged: (value) {},
+                ),
+                const SizedBox(
+                  height: 32,
+                ),
+                CustomTextFormField(
+                  validator: (data) {
+                    if (data!.isEmpty) {
+                      return "Field is required";
+                    }
+                    return null;
+                  },
+                  label: "علامة مميزة",
+                  onChanged: (value) {},
                 ),
                 const SizedBox(
                   height: 61,
@@ -141,7 +136,7 @@ class _ChangePasswordPageState extends State<ChangePasswordPage> {
                         showDialog(
                           context: context,
                           builder: (context) => CustomAlertDialog(
-                            messege: "تم تغيير كلمه المرور بنجاح",
+                            messege: "تم تعديل البيانات",
                             ontap: () {
                               Get.to(() => const AccountPage());
                             },

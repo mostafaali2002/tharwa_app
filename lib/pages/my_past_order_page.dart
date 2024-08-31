@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
-import 'package:tharwa_app/pages/my_past_order_page.dart';
 import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
 
-class MyOrderPage extends StatelessWidget {
-  const MyOrderPage({super.key});
+class MyPastOrderPage extends StatelessWidget {
+  const MyPastOrderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -44,26 +43,6 @@ class MyOrderPage extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
                 children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => const MyPastOrderPage());
-                    },
-                    child: Container(
-                      height: 32,
-                      width: 66,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: const Color(0xffFBEEDE)),
-                      child: const Center(
-                          child: Text(
-                        "السابقة",
-                        style: TextStyle(color: Colors.grey),
-                      )),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
                   Container(
                     height: 32,
                     width: 66,
@@ -72,9 +51,27 @@ class MyOrderPage extends StatelessWidget {
                         color: const Color(Style.kPrimaryColor)),
                     child: const Center(
                         child: Text(
-                      "الحالي",
+                      "السابقة",
                       style: TextStyle(color: Colors.white),
                     )),
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Container(
+                      height: 32,
+                      width: 66,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color(0xffFBEEDE)),
+                      child: const Center(
+                          child: Text(
+                        "الحالي",
+                        style: TextStyle(color: Colors.grey),
+                      )),
+                    ),
                   ),
                   const SizedBox(
                     width: 70,
@@ -109,30 +106,6 @@ class MyOrderPage extends StatelessWidget {
                       ),
                       const SizedBox(
                         width: 5,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => CustomAlertDialog(
-                              messege: "تم الغاء الطلب بنجاح",
-                              ontap: () {
-                                Get.back();
-                              },
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: 59,
-                          height: 32,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                  color:
-                                      const Color.fromARGB(118, 158, 158, 158)),
-                              color: Colors.white),
-                          child: const Center(child: Text("الغاء")),
-                        ),
                       ),
                       const SizedBox(
                         width: 30,

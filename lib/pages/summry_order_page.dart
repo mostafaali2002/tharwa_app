@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:tharwa_app/constant.dart';
-import 'package:tharwa_app/pages/my_past_order_page.dart';
-import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
+import 'package:tharwa_app/pages/payment_page.dart';
+import 'package:tharwa_app/widgets/custom_button.dart';
+import 'package:tharwa_app/widgets/payment_details.dart';
 
-class MyOrderPage extends StatelessWidget {
-  const MyOrderPage({super.key});
+class SummaryOrderPage extends StatelessWidget {
+  const SummaryOrderPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +16,7 @@ class MyOrderPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text(
-          "طلباتي",
+          "ملخص الطلب",
           style: TextStyle(
               color: Color(Style.kPrimaryColorTwo),
               fontSize: 20,
@@ -36,64 +38,30 @@ class MyOrderPage extends StatelessWidget {
           )
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 20),
+      body: SingleChildScrollView(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
-            Padding(
+            const SizedBox(
+              height: 20,
+            ),
+            const Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Row(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Get.to(() => const MyPastOrderPage());
-                    },
-                    child: Container(
-                      height: 32,
-                      width: 66,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: const Color(0xffFBEEDE)),
-                      child: const Center(
-                          child: Text(
-                        "السابقة",
-                        style: TextStyle(color: Colors.grey),
-                      )),
-                    ),
-                  ),
-                  const SizedBox(
-                    width: 15,
-                  ),
-                  Container(
-                    height: 32,
-                    width: 66,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color(Style.kPrimaryColor)),
-                    child: const Center(
-                        child: Text(
-                      "الحالي",
-                      style: TextStyle(color: Colors.white),
-                    )),
-                  ),
-                  const SizedBox(
-                    width: 70,
-                  ),
-                  const Text(
-                    "تصفح وتتبع طلباتك",
-                    style: TextStyle(
-                        color: Color(Style.kPrimaryColorTwo), fontSize: 16),
-                  )
-                ],
+              child: Text(
+                "العناصر",
+                style: TextStyle(
+                    color: Color(Style.kPrimaryColorTwo),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
               ),
             ),
             const SizedBox(
-              height: 32,
+              height: 20,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                height: 115,
+                height: 107,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
@@ -102,37 +70,13 @@ class MyOrderPage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const SizedBox(
                         width: 5,
                       ),
                       const SizedBox(
                         width: 5,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => CustomAlertDialog(
-                              messege: "تم الغاء الطلب بنجاح",
-                              ontap: () {
-                                Get.back();
-                              },
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: 59,
-                          height: 32,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                  color:
-                                      const Color.fromARGB(118, 158, 158, 158)),
-                              color: Colors.white),
-                          child: const Center(child: Text("الغاء")),
-                        ),
                       ),
                       const SizedBox(
                         width: 30,
@@ -160,11 +104,14 @@ class MyOrderPage extends StatelessWidget {
                                 Text("بيزك تيشرت"),
                               ],
                             ),
-                            Text("الكمية : 1"),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text(
                               "250 L.E.",
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
+                                fontSize: 15,
+                              ),
                             ),
                           ],
                         ),
@@ -184,7 +131,7 @@ class MyOrderPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Container(
-                height: 115,
+                height: 107,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
@@ -193,7 +140,7 @@ class MyOrderPage extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                   child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: [
                       const SizedBox(
                         width: 5,
@@ -201,35 +148,11 @@ class MyOrderPage extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
-                      GestureDetector(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (context) => CustomAlertDialog(
-                              messege: "تم الغاء الطلب بنجاح",
-                              ontap: () {
-                                Get.back();
-                              },
-                            ),
-                          );
-                        },
-                        child: Container(
-                          width: 59,
-                          height: 32,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                  color:
-                                      const Color.fromARGB(118, 158, 158, 158)),
-                              color: Colors.white),
-                          child: const Center(child: Text("الغاء")),
-                        ),
-                      ),
                       const SizedBox(
                         width: 30,
                       ),
                       const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 30),
+                        padding: const EdgeInsets.symmetric(horizontal: 30),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.end,
@@ -251,11 +174,14 @@ class MyOrderPage extends StatelessWidget {
                                 Text("بيزك تيشرت"),
                               ],
                             ),
-                            Text("الكمية : 1"),
+                            SizedBox(
+                              height: 20,
+                            ),
                             Text(
                               "250 L.E.",
                               style: TextStyle(
-                                  fontSize: 15, fontWeight: FontWeight.bold),
+                                fontSize: 15,
+                              ),
                             ),
                           ],
                         ),
@@ -268,6 +194,90 @@ class MyOrderPage extends StatelessWidget {
                   ),
                 ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                "العنوان",
+                style: TextStyle(
+                    color: Color(Style.kPrimaryColorTwo),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                      color: const Color.fromARGB(101, 158, 158, 158)),
+                ),
+                child: const Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 7, vertical: 10),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "البلد : مصر",
+                        style: TextStyle(
+                            fontSize: 15, color: Color(Style.kPrimaryColorTwo)),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "المحافظة : القاهرة",
+                        style: TextStyle(
+                            fontSize: 15, color: Color(Style.kPrimaryColorTwo)),
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        "العنوان : مدينة نصر - أول مكرم - شارع 1 عمارة 9 الدور 3",
+                        style: TextStyle(
+                            fontSize: 15, color: Color(Style.kPrimaryColorTwo)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Text(
+                "السعر",
+                style: TextStyle(
+                    color: Color(Style.kPrimaryColorTwo),
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            const PaymentDetails(),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: CustomButton(
+                  onPressed: () {
+                    Get.to(() => const PaymentPage());
+                  },
+                  width: 230,
+                  btnColor: const Color(Style.kPrimaryColor),
+                  text: "استمرار"),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/pages/onbordding3_page.dart';
 import 'package:tharwa_app/pages/signin_page.dart';
@@ -19,7 +18,7 @@ class BorddingTwoPage extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

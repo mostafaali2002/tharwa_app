@@ -2,12 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get_core/get_core.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:tharwa_app/constant.dart';
+import 'package:tharwa_app/pages/cart_page.dart';
 import 'package:tharwa_app/pages/favourit_page.dart';
+import 'package:tharwa_app/pages/result_search_page.dart';
 import 'package:tharwa_app/pages/seller_page.dart';
 import 'package:tharwa_app/pages/setting/account_page.dart';
 import 'package:tharwa_app/pages/setting/more_page.dart';
+import 'package:tharwa_app/pages/setting/my_order_page.dart';
 import 'package:tharwa_app/widgets/categories.dart';
 import 'package:tharwa_app/widgets/list_of_category_image.dart';
+import 'package:tharwa_app/widgets/text_form.dart';
 import 'package:tharwa_app/widgets/trademark_list.dart';
 
 class HomePage extends StatefulWidget {
@@ -98,19 +102,39 @@ class _HomePageState extends State<HomePage> {
                 ),
                 Row(
                   children: [
-                    Container(
-                      width: 73,
-                      height: 64,
-                      decoration: BoxDecoration(
-                        color: const Color(Style.kPrimaryColor),
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      child: const Icon(
-                        Icons.shopping_cart,
-                        color: Colors.white,
-                        size: 30,
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(() => const CartPage());
+                      },
+                      child: Container(
+                        width: 73,
+                        height: 64,
+                        decoration: BoxDecoration(
+                          color: const Color(Style.kPrimaryColor),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: const Icon(
+                          Icons.shopping_cart,
+                          color: Colors.white,
+                          size: 30,
+                        ),
                       ),
                     ),
+                    const SizedBox(
+                      width: 15,
+                    ),
+                    Container(
+                      width: 250,
+                      child: CustomTextFormField(
+                        preicon: IconButton(
+                            onPressed: () {
+                              Get.to(() => const ResultSearchPage());
+                            },
+                            icon: const Icon(Icons.search)),
+                        onChanged: (p0) {},
+                        label: "ابحث بالعلامه التجاريه",
+                      ),
+                    )
                   ],
                 ),
                 const SizedBox(

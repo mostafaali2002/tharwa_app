@@ -25,25 +25,25 @@ class CartItem extends StatelessWidget {
                 ontap: () {},
                 iconData: Icons.remove,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
-              Text(
+              const Text(
                 "1",
                 style: TextStyle(fontSize: 15),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 5,
               ),
               CircleButton(
                 ontap: () {},
                 iconData: Icons.add,
               ),
-              SizedBox(
+              const SizedBox(
                 width: 30,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.end,

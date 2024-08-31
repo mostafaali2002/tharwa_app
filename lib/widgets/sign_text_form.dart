@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:tharwa_app/widgets/text_form.dart';
 
-class SignTextFormField extends StatelessWidget {
+class SignTextFormField extends StatefulWidget {
+  @override
+  State<SignTextFormField> createState() => _SignTextFormFieldState();
+}
+
+class _SignTextFormFieldState extends State<SignTextFormField> {
+  bool ispassword = true;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -25,12 +31,20 @@ class SignTextFormField extends StatelessWidget {
             }
             return null;
           },
-          obscureText: true,
+          obscureText: ispassword,
           label: "كلمة المرور",
           onChanged: (value) {},
           preicon: IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.remove_red_eye),
+            onPressed: () {
+              setState(() {
+                ispassword = !ispassword;
+              });
+            },
+            icon: ispassword
+                ? const Icon(Icons.visibility_off)
+                : const Icon(Icons.visibility),
+            color: Colors.grey,
+            iconSize: 25,
           ),
         ),
       ],

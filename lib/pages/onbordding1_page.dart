@@ -18,7 +18,7 @@ class BorddingOnePage extends StatelessWidget {
         body: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(24),
+              padding: const EdgeInsets.all(24),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
