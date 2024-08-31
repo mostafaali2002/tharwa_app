@@ -8,7 +8,6 @@ import 'package:tharwa_app/pages/result_search_page.dart';
 import 'package:tharwa_app/pages/seller_page.dart';
 import 'package:tharwa_app/pages/setting/account_page.dart';
 import 'package:tharwa_app/pages/setting/more_page.dart';
-import 'package:tharwa_app/pages/setting/my_order_page.dart';
 import 'package:tharwa_app/widgets/categories.dart';
 import 'package:tharwa_app/widgets/list_of_category_image.dart';
 import 'package:tharwa_app/widgets/text_form.dart';

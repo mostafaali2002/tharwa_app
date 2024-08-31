@@ -4,8 +4,13 @@ import 'package:tharwa_app/widgets/circle_button.dart';
 class CartItem extends StatelessWidget {
   const CartItem({
     super.key,
+    required this.count1,
+    required this.ontap,
+    required this.ontap2,
   });
-
+  final int count1;
+  final VoidCallback ontap;
+  final VoidCallback ontap2;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -22,21 +27,21 @@ class CartItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               CircleButton(
-                ontap: () {},
+                ontap: ontap,
                 iconData: Icons.remove,
               ),
               const SizedBox(
                 width: 5,
               ),
-              const Text(
-                "1",
-                style: TextStyle(fontSize: 15),
+              Text(
+                "$count1",
+                style: const TextStyle(fontSize: 15),
               ),
               const SizedBox(
                 width: 5,
               ),
               CircleButton(
-                ontap: () {},
+                ontap: ontap2,
                 iconData: Icons.add,
               ),
               const SizedBox(

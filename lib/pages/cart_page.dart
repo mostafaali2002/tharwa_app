@@ -6,9 +6,16 @@ import 'package:tharwa_app/pages/address_order_page.dart';
 import 'package:tharwa_app/widgets/cart_item.dart';
 import 'package:tharwa_app/widgets/custom_button.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
+  @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
+  int count1 = 1;
+  int count2 = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,11 +50,45 @@ class CartPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              const CartItem(),
+              CartItem(
+                count1: count1,
+                ontap: () {
+                  setState(() {
+                    if (count1 == 0) {
+                      count1 = 1;
+                    } else {
+                      count1--;
+                    }
+                  });
+                },
+                ontap2: () {
+                  setState(() {
+                    count1++;
+                  });
+                },
+              ),
               const SizedBox(
                 height: 25,
               ),
-              const CartItem(),
+              CartItem(
+                count1: count2,
+                ontap: () {
+                  setState(() {
+                    setState(() {
+                      if (count2 == 0) {
+                        count2 = 1;
+                      } else {
+                        count2--;
+                      }
+                    });
+                  });
+                },
+                ontap2: () {
+                  setState(() {
+                    count2++;
+                  });
+                },
+              ),
               const SizedBox(
                 height: 300,
               ),
