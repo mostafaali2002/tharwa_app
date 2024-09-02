@@ -1,10 +1,10 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tharwa_app/constant.dart';
 import 'package:tharwa_app/pages/cart_page.dart';
 import 'package:tharwa_app/widgets/circle_button.dart';
 import 'package:tharwa_app/widgets/custom_alert_dialog.dart';
-import 'package:tharwa_app/widgets/custom_circle_avatar.dart';
 
 class ProductDetailsPage extends StatefulWidget {
   const ProductDetailsPage({super.key});
@@ -15,6 +15,20 @@ class ProductDetailsPage extends StatefulWidget {
 
 class _ProductDetailsPageState extends State<ProductDetailsPage> {
   int count = 0;
+  bool isClicked1 = false;
+  bool isClicked2 = false;
+  bool isClicked3 = true;
+  bool isClicked4 = false;
+  int currentPage = 0;
+  bool isClickedColor1 = false;
+  bool isClickedColor2 = false;
+  bool isClickedColor3 = true;
+  bool isClickedColor4 = false;
+  List<String> imgList = [
+    "assets/tshirt.png",
+    "assets/tshirt.png",
+    "assets/tshirt.png",
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,27 +63,36 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Column(
             children: [
-              Center(child: Image.asset("assets/tshirt.png")),
-              const SizedBox(
-                height: 30,
+              CarouselSlider(
+                  items: imgList
+                      .map(
+                        (e) => Center(
+                          child: Image.asset(e),
+                        ),
+                      )
+                      .toList(),
+                  options: CarouselOptions(
+                    initialPage: 0,
+                    onPageChanged: (index, _) {
+                      setState(() {
+                        currentPage = index;
+                      });
+                    },
+                  )),
+              SizedBox(
+                height: 20,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 160),
-                child: CustomCircleAvatar(
-                  firstCircleColor: Color(Style.kCircleColor),
-                  secondCircleColor: Color(Style.kCircleColor),
-                  thirdCircleColor: Color(Style.kPrimaryColor),
-                ),
-              ),
+              buildCursosulIndecator(),
               const SizedBox(
                 height: 32,
               ),
-              Card(
-                elevation: 30,
-                shape: const RoundedRectangleBorder(
+              Container(
+                decoration: const BoxDecoration(
+                    color: Color.fromARGB(164, 255, 255, 255),
                     borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20))),
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    )),
                 child: Column(
                   children: [
                     Padding(
@@ -128,26 +151,94 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                         ),
                       ),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 20),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
                       child: Row(
                         children: [
-                          CustomCircleAvatar(
-                            firstCircleColor: Color(Style.kCircleColor),
-                            secondCircleColor: Color(0xffFF725E),
-                            thirdCircleColor: Colors.black,
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClickedColor4 = false;
+                                isClickedColor3 = false;
+                                isClickedColor2 = false;
+                                isClickedColor1 = true;
+                              });
+                            },
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: isClickedColor1
+                                  ? const Color(0xffFBEEDE)
+                                  : Colors.white,
+                              child: const CircleAvatar(
+                                backgroundColor: Color(Style.kCircleColor),
+                                radius: 7,
+                              ),
+                            ),
                           ),
-                          SizedBox(
-                            width: 8,
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClickedColor4 = false;
+                                isClickedColor3 = false;
+                                isClickedColor2 = true;
+                                isClickedColor1 = false;
+                              });
+                            },
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: isClickedColor2
+                                  ? const Color(0xffFBEEDE)
+                                  : Colors.white,
+                              child: const CircleAvatar(
+                                backgroundColor: Color(0xffFF725E),
+                                radius: 7,
+                              ),
+                            ),
                           ),
-                          CircleAvatar(
-                            backgroundColor: Colors.orange,
-                            radius: 7,
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClickedColor4 = false;
+                                isClickedColor3 = true;
+                                isClickedColor2 = false;
+                                isClickedColor1 = false;
+                              });
+                            },
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: isClickedColor3
+                                  ? const Color(0xffFBEEDE)
+                                  : Colors.white,
+                              child: const CircleAvatar(
+                                backgroundColor: Colors.black,
+                                radius: 7,
+                              ),
+                            ),
                           ),
-                          Spacer(
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClickedColor4 = true;
+                                isClickedColor3 = false;
+                                isClickedColor2 = false;
+                                isClickedColor1 = false;
+                              });
+                            },
+                            child: CircleAvatar(
+                              radius: 15,
+                              backgroundColor: isClickedColor4
+                                  ? const Color(0xffFBEEDE)
+                                  : Colors.white,
+                              child: const CircleAvatar(
+                                backgroundColor: Colors.orange,
+                                radius: 7,
+                              ),
+                            ),
+                          ),
+                          const Spacer(
                             flex: 1,
                           ),
-                          Text("متوفر في المخزون")
+                          const Text("متوفر في المخزون")
                         ],
                       ),
                     ),
@@ -172,43 +263,94 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          Container(
-                            height: 42,
-                            child: Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Center(child: Text("XXL")),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClicked1 = true;
+                                isClicked2 = false;
+                                isClicked3 = false;
+                                isClicked4 = false;
+                              });
+                            },
+                            child: Container(
+                              height: 42,
+                              child: Card(
+                                color: isClicked1
+                                    ? const Color(0xffFBEEDE)
+                                    : Colors.white,
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("XXL")),
+                              ),
                             ),
                           ),
-                          Container(
-                            height: 42,
-                            width: 30,
-                            child: Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Center(child: Text("XL")),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClicked1 = false;
+                                isClicked2 = true;
+                                isClicked3 = false;
+                                isClicked4 = false;
+                              });
+                            },
+                            child: Container(
+                              height: 42,
+                              width: 30,
+                              child: Card(
+                                elevation: 4,
+                                color: isClicked2
+                                    ? const Color(0xffFBEEDE)
+                                    : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("XL")),
+                              ),
                             ),
                           ),
-                          Container(
-                            height: 42,
-                            width: 30,
-                            child: Card(
-                              elevation: 4,
-                              color: const Color(0xffFBEEDE),
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Center(child: Text("L")),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClicked1 = false;
+                                isClicked2 = false;
+                                isClicked3 = true;
+                                isClicked4 = false;
+                              });
+                            },
+                            child: Container(
+                              height: 42,
+                              width: 30,
+                              child: Card(
+                                elevation: 4,
+                                color: isClicked3
+                                    ? const Color(0xffFBEEDE)
+                                    : Colors.white,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("L")),
+                              ),
                             ),
                           ),
-                          Container(
-                            height: 42,
-                            child: Card(
-                              elevation: 4,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20)),
-                              child: const Center(child: Text("M")),
+                          GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                isClicked1 = false;
+                                isClicked2 = false;
+                                isClicked3 = false;
+                                isClicked4 = true;
+                              });
+                            },
+                            child: Container(
+                              height: 42,
+                              child: Card(
+                                color: isClicked4
+                                    ? const Color(0xffFBEEDE)
+                                    : Colors.white,
+                                elevation: 4,
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("M")),
+                              ),
                             ),
                           ),
                         ],
@@ -233,7 +375,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     ),
                     Container(
                       width: 317,
-                      child: Text(
+                      child: const Text(
                           "لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبورأنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم "),
                     ),
                     const SizedBox(
@@ -298,6 +440,25 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
           ),
         ),
       ),
+    );
+  }
+
+  buildCursosulIndecator() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        for (int i = 0; i < imgList.length; i++)
+          Container(
+            margin: const EdgeInsets.all(5),
+            height: 10,
+            width: 10,
+            decoration: BoxDecoration(
+                color: i == currentPage
+                    ? const Color(Style.kPrimaryColor)
+                    : Colors.grey,
+                shape: BoxShape.circle),
+          ),
+      ],
     );
   }
 }
