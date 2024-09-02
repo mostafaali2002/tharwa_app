@@ -18,36 +18,42 @@ class trademarkList extends StatelessWidget {
   final VoidCallback tradeOntap3;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        GestureDetector(
-          onTap: tradeOntap1,
-          child: Image.asset(
-            trademark1,
-            width: 100,
-          ),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            GestureDetector(
+              onTap: tradeOntap1,
+              child: Image.asset(
+                trademark1,
+                width: 100,
+              ),
+            ),
+            const SizedBox(
+              width: 16,
+            ),
+            GestureDetector(
+              onTap: tradeOntap2,
+              child: Image.asset(
+                trademark2,
+                width: 100,
+              ),
+            ),
+            const SizedBox(
+              width: 16,
+            ),
+            GestureDetector(
+              onTap: tradeOntap3,
+              child: Image.asset(
+                trademark3,
+                width: 100,
+              ),
+            ),
+          ],
         ),
-        const SizedBox(
-          width: 16,
-        ),
-        GestureDetector(
-          onTap: tradeOntap2,
-          child: Image.asset(
-            trademark2,
-            width: 100,
-          ),
-        ),
-        const SizedBox(
-          width: 16,
-        ),
-        GestureDetector(
-          onTap: tradeOntap3,
-          child: Image.asset(
-            trademark3,
-            width: 100,
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

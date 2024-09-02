@@ -10,27 +10,37 @@ class CustomCircleAvatar extends StatelessWidget {
   final Color firstCircleColor;
   final Color secondCircleColor;
   final Color thirdCircleColor;
+
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-          backgroundColor: firstCircleColor,
-          radius: 7,
+        GestureDetector(
+          onTap: () {},
+          child: CircleAvatar(
+            backgroundColor: firstCircleColor,
+            radius: 7,
+          ),
         ),
         const SizedBox(
           width: 7,
         ),
-        CircleAvatar(
-          backgroundColor: secondCircleColor,
-          radius: 7,
+        GestureDetector(
+          onTap: () {},
+          child: CircleAvatar(
+            backgroundColor: secondCircleColor,
+            radius: 7,
+          ),
         ),
         const SizedBox(
           width: 7,
         ),
-        CircleAvatar(
-          backgroundColor: thirdCircleColor,
-          radius: 7,
+        GestureDetector(
+          onTap: () {},
+          child: CircleAvatar(
+            backgroundColor: thirdCircleColor,
+            radius: 7,
+          ),
         ),
       ],
     );

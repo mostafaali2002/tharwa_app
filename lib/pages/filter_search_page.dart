@@ -14,6 +14,11 @@ class FilterSearchPage extends StatefulWidget {
 class _FilterSearchPageState extends State<FilterSearchPage> {
   double height = 255;
   int groupValue = 1;
+  bool isClick1 = false;
+  bool isClick2 = false;
+  bool isClick3 = false;
+  bool isClick4 = true;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

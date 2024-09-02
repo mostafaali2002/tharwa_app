@@ -31,7 +31,10 @@ class _TshirtItemState extends State<TshirtItem> {
           children: [
             Column(
               children: [
-                Image.asset("assets/tshirt.png"),
+                Image.asset(
+                  "assets/tshirt.png",
+                  width: double.infinity,
+                ),
                 const Text(
                   "Max",
                   style: TextStyle(fontSize: 11, fontWeight: FontWeight.bold),

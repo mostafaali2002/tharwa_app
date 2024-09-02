@@ -18,7 +18,7 @@ class ResultSearchPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -39,7 +39,7 @@ class ResultSearchPage extends StatelessWidget {
                       onPressed: () {
                         Get.to(() => const MorePage());
                       },
-                      icon: const Icon(Icons.menu, size: 40)),
+                      icon: const Icon(Icons.menu, size: 30)),
                   label: "المزيد",
                 ),
                 BottomNavigationBarItem(
@@ -47,7 +47,7 @@ class ResultSearchPage extends StatelessWidget {
                       onPressed: () {
                         Get.to(() => const AccountPage());
                       },
-                      icon: const Icon(Icons.person, size: 40)),
+                      icon: const Icon(Icons.person, size: 30)),
                   label: "حسابي",
                 ),
                 BottomNavigationBarItem(
@@ -55,14 +55,14 @@ class ResultSearchPage extends StatelessWidget {
                         onPressed: () {
                           Get.to(() => const FavPage());
                         },
-                        icon: const Icon(Icons.star, size: 40)),
+                        icon: const Icon(Icons.star, size: 30)),
                     label: "المفضلة"),
                 BottomNavigationBarItem(
                     icon: IconButton(
                         onPressed: () {
                           Get.to(() => const HomePage());
                         },
-                        icon: const Icon(Icons.home, size: 40)),
+                        icon: const Icon(Icons.home, size: 30)),
                     label: "الرئيسية"),
               ]),
         ),

@@ -22,13 +22,17 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int myCurrentIndex = 3;
+  bool isClick1 = false;
+  bool isClick2 = false;
+  bool isClick3 = false;
+  bool isClick4 = true;
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         bottomNavigationBar: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 3),
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -55,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {
                           Get.to(() => const MorePage());
                         },
-                        icon: const Icon(Icons.menu, size: 40)),
+                        icon: const Icon(Icons.menu, size: 30)),
                     label: "المزيد",
                   ),
                   BottomNavigationBarItem(
@@ -63,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                         onPressed: () {
                           Get.to(() => const AccountPage());
                         },
-                        icon: const Icon(Icons.person, size: 40)),
+                        icon: const Icon(Icons.person, size: 30)),
                     label: "حسابي",
                   ),
                   BottomNavigationBarItem(
@@ -71,14 +75,14 @@ class _HomePageState extends State<HomePage> {
                           onPressed: () {
                             Get.to(() => const FavPage());
                           },
-                          icon: const Icon(Icons.star, size: 40)),
+                          icon: const Icon(Icons.star, size: 30)),
                       label: "المفضلة"),
                   BottomNavigationBarItem(
                       icon: IconButton(
                           onPressed: () {
                             Get.to(() => const MorePage());
                           },
-                          icon: const Icon(Icons.home, size: 40)),
+                          icon: const Icon(Icons.home, size: 30)),
                       label: "الرئيسية"),
                 ]),
           ),
@@ -143,7 +147,44 @@ class _HomePageState extends State<HomePage> {
                 const SizedBox(
                   height: 17,
                 ),
-                const Categories(),
+                Categories(
+                  ontap1: () {
+                    setState(() {
+                      isClick2 = false;
+                      isClick1 = true;
+                      isClick3 = false;
+                      isClick4 = false;
+                    });
+                  },
+                  ontap2: () {
+                    setState(() {
+                      isClick2 = true;
+                      isClick1 = false;
+                      isClick3 = false;
+                      isClick4 = false;
+                    });
+                  },
+                  ontap3: () {
+                    setState(() {
+                      isClick3 = true;
+                      isClick1 = false;
+                      isClick2 = false;
+                      isClick4 = false;
+                    });
+                  },
+                  ontap4: () {
+                    setState(() {
+                      isClick4 = true;
+                      isClick1 = false;
+                      isClick2 = false;
+                      isClick3 = false;
+                    });
+                  },
+                  isClick1: isClick1,
+                  isClick2: isClick2,
+                  isClick3: isClick3,
+                  isClick4: isClick4,
+                ),
                 const SizedBox(
                   height: 32,
                 ),

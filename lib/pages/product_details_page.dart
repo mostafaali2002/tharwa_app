@@ -79,7 +79,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                       });
                     },
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               buildCursosulIndecator(),
