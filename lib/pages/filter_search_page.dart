@@ -18,6 +18,10 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
   bool isClick2 = false;
   bool isClick3 = false;
   bool isClick4 = true;
+  bool isClick5 = false;
+  bool isClick6 = false;
+  bool isClick7 = false;
+  bool isClick8 = true;
 
   @override
   Widget build(BuildContext context) {
@@ -64,17 +68,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          if (isClick1 == true) {
+                            isClick1 = false;
+                          } else {
+                            isClick1 = true;
+                          }
+                        });
+                      },
                       child: Container(
                         height: 32,
                         width: 65,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xffFBEEDE)),
-                        child: const Center(
+                            color: isClick1
+                                ? const Color(Style.kPrimaryColor)
+                                : const Color(0xffFBEEDE)),
+                        child: Center(
                             child: Text(
                           "احذيه",
-                          style: TextStyle(color: Color.fromARGB(146, 0, 0, 0)),
+                          style: TextStyle(
+                              color: isClick1
+                                  ? Colors.white
+                                  : Color.fromARGB(146, 0, 0, 0)),
                         )),
                       ),
                     ),
@@ -82,17 +99,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          if (isClick2 == true) {
+                            isClick2 = false;
+                          } else {
+                            isClick2 = true;
+                          }
+                        });
+                      },
                       child: Container(
                         height: 32,
                         width: 75,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xffFBEEDE)),
-                        child: const Center(
+                            color: isClick2
+                                ? const Color(Style.kPrimaryColor)
+                                : const Color(0xffFBEEDE)),
+                        child: Center(
                             child: Text(
                           "إلكترونيات",
-                          style: TextStyle(color: Color.fromARGB(146, 0, 0, 0)),
+                          style: TextStyle(
+                              color: isClick2
+                                  ? Colors.white
+                                  : Color.fromARGB(146, 0, 0, 0)),
                         )),
                       ),
                     ),
@@ -100,17 +130,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          if (isClick3 == true) {
+                            isClick3 = false;
+                          } else {
+                            isClick3 = true;
+                          }
+                        });
+                      },
                       child: Container(
                         height: 32,
                         width: 115,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: const Color(0xffFBEEDE)),
+                            color: isClick3
+                                ? const Color(Style.kPrimaryColor)
+                                : const Color(0xffFBEEDE)),
                         child: Text(
                           textAlign: TextAlign.center,
                           "مستحضرات تجميل",
-                          style: TextStyle(color: Color.fromARGB(146, 0, 0, 0)),
+                          style: TextStyle(
+                              color: isClick3
+                                  ? Colors.white
+                                  : Color.fromARGB(146, 0, 0, 0)),
                         ),
                       ),
                     ),
@@ -118,17 +161,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                       width: 10,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        setState(() {
+                          if (isClick4 == true) {
+                            isClick4 = false;
+                          } else {
+                            isClick4 = true;
+                          }
+                        });
+                      },
                       child: Container(
                         height: 32,
                         width: 60,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
-                            color: const Color(Style.kPrimaryColor)),
-                        child: const Center(
+                            color: isClick4
+                                ? const Color(Style.kPrimaryColor)
+                                : const Color(0xffFBEEDE)),
+                        child: Center(
                             child: Text(
                           "ملابس",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(
+                              color: isClick4
+                                  ? Colors.white
+                                  : Color.fromARGB(146, 0, 0, 0)),
                         )),
                       ),
                     ),
@@ -142,17 +198,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        if (isClick5 == true) {
+                          isClick5 = false;
+                        } else {
+                          isClick5 = true;
+                        }
+                      });
+                    },
                     child: Container(
                       height: 32,
                       width: 70,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: const Color(0xffFBEEDE)),
-                      child: const Center(
+                          color: isClick5
+                              ? const Color(Style.kPrimaryColor)
+                              : const Color(0xffFBEEDE)),
+                      child: Center(
                           child: Text(
                         "أزياء طفال",
-                        style: TextStyle(color: Color.fromARGB(146, 0, 0, 0)),
+                        style: TextStyle(
+                            color: isClick5
+                                ? Colors.white
+                                : Color.fromARGB(146, 0, 0, 0)),
                       )),
                     ),
                   ),
@@ -160,17 +229,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                     width: 10,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        if (isClick6 == true) {
+                          isClick6 = false;
+                        } else {
+                          isClick6 = true;
+                        }
+                      });
+                    },
                     child: Container(
                       height: 32,
                       width: 55,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: const Color(Style.kPrimaryColor)),
-                      child: const Center(
+                          color: isClick6
+                              ? const Color(Style.kPrimaryColor)
+                              : const Color(0xffFBEEDE)),
+                      child: Center(
                           child: Text(
                         "حقائب",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: isClick6
+                                ? Colors.white
+                                : Color.fromARGB(146, 0, 0, 0)),
                       )),
                     ),
                   ),
@@ -178,17 +260,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                     width: 10,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        if (isClick7 == true) {
+                          isClick7 = false;
+                        } else {
+                          isClick7 = true;
+                        }
+                      });
+                    },
                     child: Container(
                       height: 32,
                       width: 80,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: const Color(Style.kPrimaryColor)),
-                      child: const Center(
+                          color: isClick7
+                              ? const Color(Style.kPrimaryColor)
+                              : const Color(0xffFBEEDE)),
+                      child: Center(
                           child: Text(
                         "اكسسوارات",
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(
+                            color: isClick7
+                                ? Colors.white
+                                : Color.fromARGB(146, 0, 0, 0)),
                       )),
                     ),
                   ),
@@ -196,17 +291,30 @@ class _FilterSearchPageState extends State<FilterSearchPage> {
                     width: 10,
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        if (isClick8 == true) {
+                          isClick8 = false;
+                        } else {
+                          isClick8 = true;
+                        }
+                      });
+                    },
                     child: Container(
                       height: 32,
                       width: 115,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: const Color(0xffFBEEDE)),
-                      child: const Center(
+                          color: isClick8
+                              ? const Color(Style.kPrimaryColor)
+                              : const Color(0xffFBEEDE)),
+                      child: Center(
                           child: Text(
                         "مستحضرات تجميل",
-                        style: TextStyle(color: Color.fromARGB(146, 0, 0, 0)),
+                        style: TextStyle(
+                            color: isClick8
+                                ? Colors.white
+                                : Color.fromARGB(146, 0, 0, 0)),
                       )),
                     ),
                   ),
