@@ -107,6 +107,30 @@ class MyPastOrderPage extends StatelessWidget {
                       const SizedBox(
                         width: 5,
                       ),
+                      GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (context) => CustomAlertDialog(
+                              messege: "تم الغاء الطلب بنجاح",
+                              ontap: () {
+                                Get.back();
+                              },
+                            ),
+                          );
+                        },
+                        child: Container(
+                          width: 59,
+                          height: 32,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              border: Border.all(
+                                  color:
+                                      const Color.fromARGB(118, 158, 158, 158)),
+                              color: Colors.white),
+                          child: const Center(child: Text("الغاء")),
+                        ),
+                      ),
                       const SizedBox(
                         width: 30,
                       ),
